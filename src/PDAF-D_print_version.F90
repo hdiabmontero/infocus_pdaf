@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_print_version.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id: PDAF-D_print_version.F90 255 2019-11-19 09:14:31Z lnerger $
 !BOP
 !
 ! !ROUTINE: PDAF_print_version --- Display version information for PDAF
@@ -55,7 +55,10 @@ SUBROUTINE PDAF_print_version()
      WRITE(*, '(a)')  'PDAF    +++                      PDAF                      +++'
      WRITE(*, '(a)')  'PDAF    +++      Parallel Data Assimilation Framework      +++'
      WRITE(*, '(a)')  'PDAF    +++                                                +++'     
-     WRITE(*, '(a)')  'PDAF    +++                Version 1.14.0                  +++' 
+     WRITE(*, '(a)')  'PDAF    +++                Version 1.15.0                  +++' 
+     WRITE(*, '(a)')  'PDAF    +++                                                +++'
+     WRITE(*, '(a)')  'PDAF    +++   Please cite Nerger and Hiller (2013) when    +++'
+     WRITE(*, '(a)')  'PDAF    +++   publishing work resulting from using PDAF    +++'
      WRITE(*, '(a/)') 'PDAF    ++++++++++++++++++++++++++++++++++++++++++++++++++++++'
   END IF
 

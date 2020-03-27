@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_pf_resampling.F90 188 2019-07-03 15:28:20Z lnerger $
+!$Id$
 !BOP
 !
 ! !ROUTINE: PDAF_pf_resampling --- Get particle indices for resampling

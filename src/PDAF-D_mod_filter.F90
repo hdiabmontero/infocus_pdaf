@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_mod_filter.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id: PDAF-D_mod_filter.F90 242 2019-11-02 01:49:30Z lnerger $
 !BOP
 !
 ! !MODULE:
@@ -122,6 +122,8 @@ MODULE PDAF_mod_filter
   INTEGER :: firsttime = 1  ! Are the filter routines called for the first time?
   INTEGER :: initevol = 1   ! Initialize a new forecast phase?
   INTEGER :: member = 1     ! Which member of sub-ensemble to evolve
+  INTEGER :: member_get = 1 ! Which member of sub-ensemble to evolve (used in PDAF_get_state)
+  INTEGER :: member_save = 1 ! Store member index for quewry with PDAF_get_memberid
   INTEGER :: nsteps         ! Number of time steps to perform
   INTEGER :: cnt_steps      ! Number of time steps in current forecast phase
   INTEGER :: end_forecast   ! Whether to exit the forecasting

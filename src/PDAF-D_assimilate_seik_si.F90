@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_assimilate_seik_si.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id$
 !BOP
 !
 ! !ROUTINE: PDAF_assimilate_seik_si --- Interface to transfer state to PDAF

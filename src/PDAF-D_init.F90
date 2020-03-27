@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_init.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id$
 !BOP
 !
 ! !ROUTINE: PDAF_init --- Initialize PDAF
@@ -114,10 +114,13 @@ SUBROUTINE PDAF_init(filtertype, subtype, stepnull, param_int, dim_pint, &
 ! ********************************************
 
   ! set number of timers
-  CALL PDAF_timeit(45, 'ini')
+  CALL PDAF_timeit(55, 'ini')
 
   ! Initialize memory counters
   CALL PDAF_memcount_ini(4)
+
+  ! Call timer
+  CALL PDAF_timeit(1, 'new')
 
   ! Print version information
   CALL PDAF_print_version()
@@ -217,7 +220,7 @@ SUBROUTINE PDAF_init(filtertype, subtype, stepnull, param_int, dim_pint, &
         IF (mype == 0 .AND. screen > 0) &
              WRITE (*, '(/a)') 'PDAF: Call routine for ensemble initialization'
 
-        CALL PDAF_timeit(1, 'new')
+        CALL PDAF_timeit(39, 'new')
 
         typef: IF (ensemblefilter) THEN
            ! *** Initialize ensemble of ensemble-based filter      ***
@@ -232,7 +235,7 @@ SUBROUTINE PDAF_init(filtertype, subtype, stepnull, param_int, dim_pint, &
                 eofV, flag)
         END IF typef
 
-        CALL PDAF_timeit(1, 'old')
+        CALL PDAF_timeit(39, 'old')
 
      END IF filter_pe3
 
@@ -246,6 +249,7 @@ SUBROUTINE PDAF_init(filtertype, subtype, stepnull, param_int, dim_pint, &
   ! Store internal status flag
   outflag = flag
 
+  CALL PDAF_timeit(1, 'old')
 
   IF (mype == 0 .AND. filterpe .AND. screen > 0) &
        WRITE (*, '(/a)') 'PDAF: Initialization completed'

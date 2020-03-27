@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF_memcount.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id$
 !BOP
 !
 ! !MODULE:
@@ -75,8 +75,6 @@ CONTAINS
     IF (.NOT. (ALLOCATED(mcounts))) ALLOCATE(mcounts(ncounters))
 
     mcounts = 0.0
-
-WRITE (*,*) 'entro PDAF_MEMCOUNT FINAL'
 
   END SUBROUTINE PDAF_memcount_ini
 

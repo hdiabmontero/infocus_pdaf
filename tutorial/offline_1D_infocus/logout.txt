@@ -1,0 +1,140 @@
+
+        +++++ PDAF offline mode +++++
+
+         Data assimilation with PDAF
+
+                     Running on 1 PE
+
+
+
+
+ Initialize communicators for assimilation with PDAF
+
+                  PE configuration:
+   world   filter     model        couple     filterPE
+   rank     rank   task   rank   task   rank    T/F
+  ----------------------------------------------------------
+     0       0      1      0      1      0       T
+
+
+ INITIALIZE MODEL INFORMATION FOR PDAF OFFLINE MODE
+                      MODEL: 2D Offline Example for Tutorial
+                        Grid size:   1 x  201
+     Global model state dimension:    201
+
+ INITIALIZE PDAF - OFFLINE MODE
+                     Filter: EnKF
+      -- Offline mode
+              ensemble size:   10
+          forgetting factor: 1.00
+
+PDAF    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PDAF    +++                      PDAF                      +++
+PDAF    +++      Parallel Data Assimilation Framework      +++
+PDAF    +++                                                +++
+PDAF    +++                Version 1.15.0                  +++
+PDAF    +++                                                +++
+PDAF    +++   Please cite Nerger and Hiller (2013) when    +++
+PDAF    +++   publishing work resulting from using PDAF    +++
+PDAF    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+PDAF: Initialize filter
+
+PDAF     +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PDAF     +++          Ensemble Kalman Filter (EnKF)          +++
+PDAF     +++                                                 +++
+PDAF     +++   Evensen, J. Geophys. Res. 99C (1994) 10143    +++
+PDAF     +++ using an ensemble of observations according to  +++
+PDAF     +++ Burgers et al., Mon. Wea. Rev. 126 (1998) 1719  +++
+PDAF     +++          This implementation follows            +++
+PDAF     +++      Nerger et al., Tellus 57A (2005) 715       +++
+PDAF     +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+PDAF      EnKF configuration
+PDAF            filter sub-type = 5
+PDAF              --> offline mode
+PDAF              --> ensemble size:   10
+PDAF          --> forgetting factor: 1.00
+
+PDAF: Initialize Parallelization
+PDAF     Parallelization - Filter on model PEs:
+PDAF                 Total number of PEs:      1
+PDAF      Number of parallel model tasks:      1
+PDAF                      PEs for Filter:      1
+PDAF     # PEs per ensemble task and local ensemble sizes: 
+PDAF     Task     1
+PDAF     #PEs     1
+PDAF        N    10
+
+PDAF: Call routine for ensemble initialization
+
+         Initialize state ensemble
+         --- read ensemble from files
+         --- Ensemble size:     10
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+
+PDAF: Initialization completed
+PDAF     --- duration of PDAF initialization:     0.008 s
+
+  PDAF offline mode: START ASSIMILATION
+
+
+PDAF ----------------------------------------------------------------
+PDAF                    +++++ ASSIMILATION +++++
+PDAF ----------------------------------------------------------------
+PDAF     Call pre-post routine after forecast; step       0
+        Analyze forecasted state ensemble
+        --- compute ensemble mean
+            RMS error according to sampled variance:   1.0053E+07
+PDAF     --- duration of prestep:     0.000 s
+PDAF Analysis -------------------------------------------------------
+PDAF       0   Assimilating observations - EnKF large-m version
+PDAF     --- use HPH directly
+PDAF     --- PE-domain      0 dimension of observation vector         1
+PDAF     --- Generate ensemble of observations
+PDAF     --- use diagonal observation eror cov. matrix
+PDAF     --- use blocking with size   200
+PDAF     --- update duration:     0.005 s
+PDAF     Call pre-post routine after analysis step
+        Analyze and write assimilated state ensemble
+        --- compute ensemble mean
+            RMS error according to sampled variance:   4.8856E-01
+        --- write ensemble and state estimate
+PDAF     --- duration of poststep:     0.007 s
+PDAF Forecast -------------------------------------------------------
+ model PE exited: mype            0
+
+ PDAF offline mode: EXITED ASSIMILATION
+
+PDAF                       PDAF Memory overview
+PDAF          ---------------------------------------------
+PDAF                     Allocated memory  (MiB)
+PDAF              state and A:      0.002 MiB (persistent)
+PDAF           ensemble array:      0.015 MiB (persistent)
+PDAF            analysis step:      0.016 MiB (temporary)
+
+
+PDAF            PDAF Timing information - call-back routines
+PDAF        ----------------------------------------------------
+PDAF          Initialize PDAF:                     0.008 s
+PDAF            init_ens_pdaf:                       0.008 s
+PDAF          EnKF analysis:                       0.005 s
+PDAF            PDAF-internal operations:            0.004 s
+PDAF            init_dim_obs_pdaf:                   0.001 s
+PDAF            obs_op_pdaf:                         0.000 s
+PDAF            add_obs_error_pdaf:                  0.000 s
+PDAF            init_obs_pdaf:                       0.000 s
+PDAF            init_obscovar_pdaf:                  0.000 s
+PDAF          prepoststep_pdaf:                    0.007 s
+
+ PDAF offline mode: END

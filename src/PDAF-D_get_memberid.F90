@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_get_memberid.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id: PDAF-D_get_memberid.F90 242 2019-11-02 01:49:30Z lnerger $
 !BOP
 !
 ! !ROUTINE: PDAF_get_memberid --- Query ensemble index of the current member
@@ -37,7 +37,7 @@ SUBROUTINE PDAF_get_memberid(memberid)
 !
 ! !USES:
   USE PDAF_mod_filter, &
-       ONLY: member
+       ONLY: member_save
 
   IMPLICIT NONE
   
@@ -47,6 +47,6 @@ SUBROUTINE PDAF_get_memberid(memberid)
 
 ! *** Set ensemble member ***
 
-  memberid = member
+  memberid = member_save
 
 END SUBROUTINE PDAF_get_memberid

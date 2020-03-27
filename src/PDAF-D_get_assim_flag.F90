@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_get_assim_flag.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id$
 !BOP
 !
 ! !ROUTINE: PDAF_get_assim_flag --- Query whether assimilation was performed at current time step

@@ -15,7 +15,7 @@
 ! You should have received a copy of the GNU Lesser General Public
 ! License along with PDAF.  If not, see <http://www.gnu.org/licenses/>.
 !
-!$Id: PDAF-D_smoother_lnetf.F90 192 2019-07-04 06:45:09Z lnerger $
+!$Id$
 !BOP
 !
 ! !ROUTINE: PDAF_smoother_lnetf --- Smoother extension for local NETF
@@ -83,15 +83,15 @@ SUBROUTINE PDAF_smoother_lnetf(domain_p, step, dim_p, dim_l, dim_ens, &
 !EOP
 
 ! *** local variables ***
-  INTEGER :: member, col, row, lagcol ! Counters
-  INTEGER :: n_lags                   ! Available number of time instances for smoothing
+  INTEGER :: member, col, row, lagcol  ! Counters
+  INTEGER :: n_lags                    ! Available number of time instances for smoothing
   INTEGER :: maxblksize, blkupper, blklower  ! Variables for blocked ensemble update
-  INTEGER, SAVE :: allocflag = 0      ! Flag whether first time allocation is done
-  INTEGER, SAVE :: first = 1          ! Flag for very first call to routine
-  INTEGER, SAVE :: domain_save = 1    ! Index of domain from last call to routine
-  REAL :: invdimens                   ! Inverse of global ensemble size
-  REAL, ALLOCATABLE :: ens_blk(:,:)   ! Temporary block of state ensemble
-  REAL, ALLOCATABLE :: W_smooth(:,:) ! Weight matrix for smoothing
+  INTEGER, SAVE :: allocflag = 0       ! Flag whether first time allocation is done
+  INTEGER, SAVE :: first = 1           ! Flag for very first call to routine
+  INTEGER, SAVE :: domain_save = 1     ! Index of domain from last call to routine
+  REAL :: invdimens                    ! Inverse of global ensemble size
+  REAL, ALLOCATABLE :: ens_blk(:,:)    ! Temporary block of state ensemble
+  REAL, ALLOCATABLE :: W_smooth(:,:)   ! Weight matrix for smoothing
   INTEGER, SAVE :: mythread, nthreads  ! Thread variables for OpenMP
 
 !$OMP THREADPRIVATE(mythread, nthreads, allocflag, first, domain_save)
